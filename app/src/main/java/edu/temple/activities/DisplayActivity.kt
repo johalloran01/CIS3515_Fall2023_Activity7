@@ -17,7 +17,7 @@ class DisplayActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_display)
-
+//Testing comment
         lyricsDisplayTextView = findViewById(R.id.lyricsDisplayTextView)
         textSizeSelectorButton = findViewById<Button?>(R.id.textSizeSelectorButton)
 
