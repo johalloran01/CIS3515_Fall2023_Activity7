@@ -11,9 +11,10 @@ class DisplayActivity : AppCompatActivity() {
 
     val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
         //Get the intent sent from TextSizeActivity
-        with(lyricsDisplayTextView){
-            textSize = intent.getExtra(FONT_SIZE_KEY, 22).toFloat()
+        it.data?.run {
+            lyricsDisplayTextView.textSize = this.getIntExtra(FONT_SIZE_KEY, 22).toFloat()
         }
+
     }
 
     // TODO Step 1: Launch TextSizeActivity when button clicked to allow selection of text size value
