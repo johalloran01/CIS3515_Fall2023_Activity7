@@ -8,7 +8,9 @@ import android.widget.TextView
 class DisplayActivity : AppCompatActivity() {
 
     // TODO Step 1: Launch TextSizeActivity when button clicked to allow selection of text size value
+    findViewById<Button>(R.id.textSizeSelectorButton).setOnClickListener{
 
+    }
     // TODO Step 3: Use returned value for lyricsDisplayTextView text size
 
     private lateinit var lyricsDisplayTextView: TextView
@@ -17,7 +19,7 @@ class DisplayActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_display)
-//Testing comment
+
         lyricsDisplayTextView = findViewById(R.id.lyricsDisplayTextView)
         textSizeSelectorButton = findViewById<Button?>(R.id.textSizeSelectorButton)
 

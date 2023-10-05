@@ -1,5 +1,6 @@
 package edu.temple.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+
+const val FONT_SIZE_KEY = "font size key"
 
 class TextSizeActivity : AppCompatActivity() {
 
@@ -24,6 +27,13 @@ class TextSizeActivity : AppCompatActivity() {
 
             // TODO Step 2: Pass selected value back to activity that launched TextSizeActivity
             adapter = TextSizeAdapter(textSizes){
+                startActivity(
+                    Intent(
+                        this@TextSizeActivity, DisplayActivity::class.java
+                    ).apply{
+                        putExtra(FONT_SIZE_KEY, it.toFloat())
+                    }
+                )
 
             }
             layoutManager = LinearLayoutManager(this@TextSizeActivity)
