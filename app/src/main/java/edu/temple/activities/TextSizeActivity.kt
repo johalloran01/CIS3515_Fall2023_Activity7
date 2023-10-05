@@ -31,7 +31,7 @@ class TextSizeActivity : AppCompatActivity() {
                     Intent(
                         this@TextSizeActivity, DisplayActivity::class.java
                     ).apply{
-                        putExtra(FONT_SIZE_KEY, it.toFloat())
+                        putExtra(FONT_SIZE_KEY, it)
                     }
                 )
 
