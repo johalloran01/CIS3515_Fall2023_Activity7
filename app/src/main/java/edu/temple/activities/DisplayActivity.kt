@@ -1,11 +1,20 @@
 package edu.temple.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
 
 class DisplayActivity : AppCompatActivity() {
+
+    val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+        //Get the intent sent from TextSizeActivity
+        with(lyricsDisplayTextView){
+            textSize = intent.getExtra(FONT_SIZE_KEY, 22).toFloat()
+        }
+    }
 
     // TODO Step 1: Launch TextSizeActivity when button clicked to allow selection of text size value
 
@@ -22,11 +31,13 @@ class DisplayActivity : AppCompatActivity() {
         lyricsDisplayTextView = findViewById(R.id.lyricsDisplayTextView)
         textSizeSelectorButton = findViewById(R.id.textSizeSelectorButton)
 
-        textSizeSelectorButton.setOnClickListener()
+        textSizeSelectorButton.setOnClickListener(){
+            val intent  = Intent(
+                this@DisplayActivity, TextSizeActivity::class.java
+            )
+            launcher.launch(intent)
 
-        //Get the intent sent from TextSizeActivity
-        with(lyricsDisplayTextView){
-            textSize = intent.getExtra(FONT_SIZE_KEY, 22).toFloat()
+
         }
 
     }
